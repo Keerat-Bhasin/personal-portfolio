@@ -29,6 +29,7 @@ export function ResearchDashboard() {
         label="Exhibit B · GT40 digital twin viewport"
         takeaway={research.takeaway}
         badge={layer.toUpperCase()}
+        immersive
       >
         <div className="absolute inset-0 grid-overlay opacity-[0.07]" />
         <div className="exhibit-corner exhibit-corner-tl" />

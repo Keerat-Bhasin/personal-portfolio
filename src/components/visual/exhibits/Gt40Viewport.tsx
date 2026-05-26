@@ -1,78 +1,53 @@
 "use client";
 
+import { gt40Images } from "@/lib/assets";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+
 type Layer = "mesh" | "wireframe" | "compliance";
 
+const layerSrc: Record<Layer, string> = {
+  mesh: gt40Images.mesh,
+  wireframe: gt40Images.wireframe,
+  compliance: gt40Images.compliance,
+};
+
+const layerAlt: Record<Layer, string> = {
+  mesh: "1966 Ford GT40 Mk II digital twin hero render",
+  wireframe: "GT40 scanned mesh from 3D scanning pipeline",
+  compliance: "GT40 exterior solid model for FIA LMH compliance redesign",
+};
+
 export function Gt40Viewport({ layer }: { layer: Layer }) {
-  const stroke =
-    layer === "compliance"
-      ? "rgba(255, 184, 107, 0.55)"
-      : layer === "wireframe"
-        ? "rgba(77, 163, 255, 0.45)"
-        : "rgba(207, 208, 204, 0.35)";
-  const fill =
-    layer === "compliance"
-      ? "rgba(255, 184, 107, 0.06)"
-      : "rgba(77, 163, 255, 0.04)";
+  const src = layerSrc[layer];
 
   return (
-    <svg
-      viewBox="0 0 800 340"
-      className="h-full w-full"
-      aria-hidden
-      preserveAspectRatio="xMidYMid meet"
-    >
-      <defs>
-        <pattern id="gt40-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-          <path
-            d="M 24 0 L 0 0 0 24"
-            fill="none"
-            stroke="rgba(207,208,204,0.06)"
-            strokeWidth="0.5"
+    <div className="absolute inset-0 bg-bg-base">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={layer}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={src}
+            alt={layerAlt[layer]}
+            fill
+            priority={layer === "mesh"}
+            sizes="(max-width: 1200px) 100vw, 1152px"
+            className={`object-cover object-center ${
+              layer === "wireframe" ? "brightness-[0.92] contrast-[1.05]" : ""
+            }`}
           />
-        </pattern>
-      </defs>
-      <rect width="800" height="340" fill="url(#gt40-grid)" />
-      {/* Ground plane */}
-      <line x1="60" y1="260" x2="740" y2="260" stroke="rgba(42,49,56,0.8)" strokeWidth="1" />
-      {/* GT40 silhouette — schematic body */}
-      <path
-        d="M 120 250 L 180 220 L 280 200 L 420 195 L 560 200 L 640 215 L 700 240 L 680 250 L 120 250 Z"
-        fill={fill}
-        stroke={stroke}
-        strokeWidth={layer === "wireframe" ? 0.8 : 1.2}
-        strokeDasharray={layer === "wireframe" ? "4 3" : undefined}
+        </motion.div>
+      </AnimatePresence>
+      <div
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(7,8,10,0.55)_100%)]"
+        aria-hidden
       />
-      {/* Cabin / greenhouse */}
-      <path
-        d="M 300 200 L 340 165 L 480 160 L 520 195"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1"
-        strokeDasharray={layer === "mesh" ? "2 4" : undefined}
-      />
-      {/* Diffuser (compliance highlight) */}
-      {layer === "compliance" ? (
-        <path
-          d="M 640 250 L 700 240 L 720 255 L 650 265 Z"
-          fill="rgba(255,184,107,0.12)"
-          stroke="rgba(255,184,107,0.6)"
-          strokeWidth="1"
-        />
-      ) : null}
-      {/* Scan origin */}
-      <circle cx="140" cy="248" r="4" fill="rgba(77,163,255,0.5)" />
-      <text x="150" y="252" fill="rgba(124,122,118,0.9)" fontSize="9" fontFamily="monospace">
-        SCAN ORIGIN
-      </text>
-      {/* Dimension callouts */}
-      <line x1="120" y1="270" x2="700" y2="270" stroke="rgba(124,122,118,0.4)" strokeWidth="0.5" />
-      <text x="380" y="285" fill="rgba(124,122,118,0.85)" fontSize="8" fontFamily="monospace" textAnchor="middle">
-        LMH HOMOLOGATION ENVELOPE
-      </text>
-      {/* Layer label */}
-      <text x="24" y="28" fill="rgba(124,122,118,0.9)" fontSize="10" fontFamily="monospace">
-        {layer.toUpperCase()} · GT40 MK II
-      </text>
-    </svg>
+    </div>
   );
 }

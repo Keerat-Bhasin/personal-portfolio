@@ -8,6 +8,7 @@ type ExhibitFrameProps = {
   children: ReactNode;
   className?: string;
   aspect?: "video" | "wide" | "square";
+  immersive?: boolean;
 };
 
 const aspectClass = {
@@ -24,6 +25,7 @@ export function ExhibitFrame({
   children,
   className = "",
   aspect = "wide",
+  immersive = false,
 }: ExhibitFrameProps) {
   return (
     <figure className={className}>
@@ -38,7 +40,9 @@ export function ExhibitFrame({
         ) : null}
       </div>
       <div
-        className={`exhibit-frame relative isolate overflow-hidden rounded-2xl border border-border/35 bg-bg-elevated/80 ${aspectClass[aspect]}`}
+        className={`exhibit-frame relative isolate overflow-hidden rounded-2xl border border-border/30 bg-bg-elevated/80 ${
+          immersive ? "min-h-[min(68vh,720px)]" : aspectClass[aspect]
+        }`}
       >
         {children}
       </div>

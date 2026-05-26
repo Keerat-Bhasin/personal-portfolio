@@ -40,7 +40,7 @@ export default function Home() {
             </>
           }
           takeaway="Scan → mesh → NX · FIA LMH compliance"
-          className="bg-bg-elevated/35"
+          className="bg-bg-elevated/35 py-28 md:py-40"
         >
           <ResearchDashboard />
         </Section>

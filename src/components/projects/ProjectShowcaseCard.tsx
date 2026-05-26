@@ -2,9 +2,9 @@
 
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { AnnotationList } from "@/components/visual/AnnotationList";
-import { ArchitectureDiagram } from "@/components/visual/ArchitectureDiagram";
 import { ExhibitFrame } from "@/components/visual/ExhibitFrame";
 import { TelemetryStrip } from "@/components/visual/TelemetryStrip";
+import { RobotExhibit } from "@/components/visual/exhibits/RobotExhibit";
 import { TrussSchematic } from "@/components/visual/exhibits/TrussSchematic";
 import type { featuredProjects } from "@/lib/content";
 
@@ -22,15 +22,7 @@ function ProjectExhibit({ project }: { project: Project }) {
     >
       <div className="exhibit-corner exhibit-corner-tl" />
       <div className="exhibit-corner exhibit-corner-br" />
-      {isTruss ? (
-        <TrussSchematic />
-      ) : (
-        <ArchitectureDiagram
-          nodes={project.architectureNodes}
-          edges={project.architectureEdges}
-          variant="horizontal"
-        />
-      )}
+      {isTruss ? <TrussSchematic /> : <RobotExhibit />}
     </ExhibitFrame>
   );
 }
