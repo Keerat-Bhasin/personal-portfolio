@@ -1,16 +1,22 @@
 export const site = {
   name: "Keerat Singh Bhasin",
   title: "Systems Engineering & Design @ UIUC",
-  positioning:
-    "Building at the intersection of robotics, mechanical systems, and intelligent products.",
+  positioning: "Robotics · embedded controls · mechanical systems",
   availability: "Available for Fall 2026 Internships",
   gpa: "3.7",
-  school: "University of Illinois Urbana-Champaign",
+  school: "UIUC",
   grad: "May 2027",
   email: "kbhasin2@illinois.edu",
   linkedin: "https://linkedin.com/in/keerat-singh-bhasin",
   phone: "(217) 904-0607",
 } as const;
+
+export const heroTelemetry = [
+  { label: "GPA", value: "3.7", unit: "/ 4.0" },
+  { label: "Focus", value: "Robotics" },
+  { label: "Stack", value: "C2000 + PID" },
+  { label: "Grad", value: "May 2027" },
+] as const;
 
 export const navLinks = [
   { label: "Work", href: "#projects" },
@@ -21,41 +27,30 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ] as const;
 
+export const aboutTakeaway =
+  "Mechanical + embedded + validation — one closed-loop system.";
+
+export const aboutAnnotations = [
+  { id: "a1", tag: "Robotics", note: "Perception → planning → PID on embedded hardware." },
+  { id: "a2", tag: "Structures", note: "Redundant truss optimization under load + removal." },
+  { id: "a3", tag: "Digital twin", note: "Scan → mesh → NX redesign under FIA LMH rules." },
+] as const;
+
 export const aboutTimeline = [
-  {
-    id: "systems",
-    label: "Systems lens",
-    detail:
-      "Mechanical hardware, embedded control, and validation as one integrated system—not isolated disciplines.",
-  },
-  {
-    id: "robotics",
-    label: "Robotics & autonomy",
-    detail:
-      "Perception, planning, and closed-loop control on real embedded platforms with measurable test outcomes.",
-  },
-  {
-    id: "research",
-    label: "Digital prototyping",
-    detail:
-      "Reverse engineering and constraint-driven redesign using industrial CAD/scanning workflows.",
-  },
-  {
-    id: "leadership",
-    label: "Technical leadership",
-    detail:
-      "Cross-functional program design—from research presentations to mentorship and fundraising at scale.",
-  },
+  { id: "systems", label: "Systems", detail: "Mech + control + verification integrated." },
+  { id: "robotics", label: "Autonomy", detail: "Closed-loop embedded platforms." },
+  { id: "research", label: "CAD / scan", detail: "Compliance-driven redesign." },
+  { id: "leadership", label: "Programs", detail: "Research · mentorship · fundraising." },
 ] as const;
 
 export const toolStack = [
-  "Embedded C / TI C2000",
-  "PID & Controls",
+  "TI C2000",
+  "PID",
   "Siemens NX",
-  "Geomagic Design X",
-  "Fusion 360 / SOLIDWORKS",
-  "MATLAB / LabVIEW",
-  "Python / Java",
+  "Geomagic",
+  "SOLIDWORKS",
+  "MATLAB",
+  "Python",
 ] as const;
 
 export const certifications = [
@@ -65,41 +60,23 @@ export const certifications = [
 
 export const research = {
   org: "Product Design Lab · UIUC",
-  role: "Undergraduate Research Assistant",
+  role: "URA",
   date: "Sep – Dec 2024",
-  title: "1966 Ford GT40 Mk II Digital Twin → FIA LMH Redesign",
-  summary:
-    "Reverse engineered the GT40 using 3D scanning and Geomagic Design X, then led a ground-up exterior redesign in Siemens NX for 2024 FIA LMH dimensional and aerodynamic regulations.",
+  title: "GT40 Mk II Digital Twin → FIA LMH Redesign",
+  takeaway: "Scan-to-homologation exterior redesign in NX.",
+  telemetry: [
+    { label: "Pipeline", value: "Scan → Twin → NX" },
+    { label: "Reg", value: "FIA LMH" },
+    { label: "Tools", value: "NX + Geomagic" },
+    { label: "Output", value: "Symposium" },
+  ],
   hotspots: [
-    {
-      id: "scan",
-      label: "3D Scanning & Twin",
-      body: "Scan → mesh repair → watertight digital twin in Geomagic Design X.",
-    },
-    {
-      id: "nx",
-      label: "Siemens NX Redesign",
-      body: "Ground-up exterior surfaces: diffuser, sidepods, floor, wing, NACA features.",
-    },
-    {
-      id: "lmh",
-      label: "LMH Compliance",
-      body: "Constraint-based packaging and dimensional homologation targets.",
-    },
-    {
-      id: "present",
-      label: "Presented",
-      body: "UIUC Undergraduate Research Symposium & ISE Student Conference.",
-    },
+    { id: "scan", label: "3D Scan & Twin", body: "Watertight mesh · Geomagic Design X." },
+    { id: "nx", label: "NX Redesign", body: "Diffuser · sidepods · floor · wing surfaces." },
+    { id: "lmh", label: "LMH Compliance", body: "Dimensional + aero homologation targets." },
+    { id: "present", label: "Presented", body: "UIUC Research Symposium · ISE Conference." },
   ],
-  tools: [
-    "Siemens NX",
-    "Geomagic Design X",
-    "3D Scanning",
-    "Mesh Repair",
-    "Aerodynamics",
-    "FIA LMH",
-  ],
+  tools: ["Siemens NX", "Geomagic Design X", "3D Scanning", "FIA LMH"],
 } as const;
 
 export const featuredProjects = [
@@ -107,33 +84,69 @@ export const featuredProjects = [
     id: "robot",
     featured: true,
     type: "Embedded · Perception · Controls",
-    title: "Autonomous Robot Car System",
-    summary:
-      "Embedded robotic platform on TI C2000: LiDAR/camera perception, path planning, PID closed-loop control, UART/SPI integration, and JTAG debugging.",
-    challenges: [
-      "Closed-loop stability under real sensor noise",
-      "Perception-to-actuation latency budgeting",
-      "Hardware-in-the-loop verification",
+    title: "Autonomous Robot Car",
+    takeaway: "LiDAR/camera → planning → PID on TI C2000.",
+    summary: "Full autonomy stack with HIL validation.",
+    architectureNodes: [
+      { id: "s", label: "Sensors", sub: "LiDAR · cam" },
+      { id: "p", label: "Perception", sub: "fusion" },
+      { id: "pl", label: "Planning", sub: "path" },
+      { id: "c", label: "PID", sub: "closed-loop" },
+      { id: "a", label: "Actuation", sub: "drive" },
+      { id: "t", label: "Telemetry", sub: "UART/SPI" },
     ],
-    architecture: "Sensors → Perception → Planning → PID Control → Actuation → Telemetry",
-    metrics: ["PID control loops", "UART/SPI + JTAG debug", "MATLAB/LabVIEW validation"],
-    tools: ["C", "TI C2000", "LiDAR", "Camera", "PID", "MATLAB", "LabVIEW"],
+    architectureEdges: [
+      { from: "s", to: "p" },
+      { from: "p", to: "pl" },
+      { from: "pl", to: "c" },
+      { from: "c", to: "a" },
+      { from: "a", to: "t" },
+    ],
+    telemetry: [
+      { label: "Platform", value: "TI C2000" },
+      { label: "I/O", value: "UART/SPI" },
+      { label: "Debug", value: "JTAG" },
+      { label: "Validate", value: "MATLAB" },
+    ],
+    annotations: [
+      { id: "r1", tag: "Stability", note: "PID under sensor noise." },
+      { id: "r2", tag: "Latency", note: "Perception-to-actuation budget." },
+      { id: "r3", tag: "HIL", note: "Hardware-in-the-loop verification." },
+    ],
+    tools: ["C", "TI C2000", "LiDAR", "PID", "MATLAB"],
   },
   {
     id: "truss",
     featured: true,
-    type: "Structural Analysis · Optimization",
-    title: "Strike-Resistant Truss Optimization",
-    summary:
-      "Statically redundant truss stable above 100 kN and under single-member removal; 50%+ material reduction with maintained safety margins.",
-    challenges: [
-      "Buckling, yield, and slenderness constraints",
-      "Redundancy under member loss",
-      "Material efficiency vs. safety factor trade-offs",
+    type: "Structural · Optimization",
+    title: "Strike-Resistant Truss",
+    takeaway: ">100 kN · redundant · −52% mass.",
+    summary: "Statically redundant under member removal.",
+    architectureNodes: [
+      { id: "l", label: "Loads", sub: ">100 kN" },
+      { id: "f", label: "FEA", sub: "forces" },
+      { id: "s", label: "Size", sub: "members" },
+      { id: "r", label: "Redundancy", sub: "removal" },
+      { id: "o", label: "Optimize", sub: "−52%" },
     ],
-    architecture: "Load cases → Force analysis → Member sizing → Redundancy check → Optimized layout",
-    metrics: [">100 kN load case", "Single-member removal stable", "50%+ material reduction"],
-    tools: ["Structural Analysis", "Optimization", "Safety Margins"],
+    architectureEdges: [
+      { from: "l", to: "f" },
+      { from: "f", to: "s" },
+      { from: "s", to: "r" },
+      { from: "r", to: "o" },
+    ],
+    telemetry: [
+      { label: "Load", value: ">100", unit: "kN" },
+      { label: "Removal", value: "Stable" },
+      { label: "Mass", value: "−52", unit: "%" },
+      { label: "SF", value: ">1.5" },
+    ],
+    annotations: [
+      { id: "t1", tag: "Buckling", note: "Yield + slenderness constraints." },
+      { id: "t2", tag: "Redundancy", note: "Single-member loss case." },
+      { id: "t3", tag: "Trade", note: "Mass vs. safety factor." },
+    ],
+    tools: ["FEA", "Optimization", "Structural"],
   },
 ] as const;
 
@@ -141,39 +154,41 @@ export const experiences = [
   {
     id: "neutrinos",
     role: "AI Platform Enablement Intern",
-    org: "Neutrinos · Remote",
+    org: "Neutrinos",
     date: "Mar 2026 – Present",
-    mission: "Translate competitive platform analysis into product requirements for an AI learning ecosystem.",
-    impact: "4-tier learning framework + freemium model presented to leadership",
-    outcomes: [
-      "Benchmarked 3+ platforms across content, monetization, and adoption",
-      "Mapped user flows and event-driven learning triggers",
-      "Delivered structured recommendations to product and platform leadership",
+    impact: "4-tier framework",
+    telemetry: [
+      { label: "Platforms", value: "3+" },
+      { label: "Framework", value: "4-tier" },
+      { label: "Model", value: "Freemium" },
     ],
+    tags: ["Requirements", "Benchmarking", "Leadership deck"],
   },
   {
     id: "ewb",
-    role: "External Vice President",
-    org: "Engineers Without Borders UIUC",
+    role: "External VP",
+    org: "EWB UIUC",
     date: "Nov 2024 – Jan 2026",
-    mission: "Fundraising and sponsorship for international infrastructure impacting 30,000+ people.",
-    impact: "$50,000 raised in 2025 (20% YoY growth)",
-    outcomes: [
-      "Built corporate, alumni, and donor pipelines",
-      "Led cross-functional fundraising and sponsorship strategy",
+    impact: "$50K raised",
+    telemetry: [
+      { label: "Raised", value: "$50K" },
+      { label: "YoY", value: "+20", unit: "%" },
+      { label: "Reach", value: "30K+", unit: "people" },
     ],
+    tags: ["Sponsorship", "Donor pipeline", "Strategy"],
   },
   {
     id: "iise",
     role: "Mentorship Director",
-    org: "Institute of Industrial & Systems Engineers (IISE)",
+    org: "IISE",
     date: "Apr 2024 – May 2025",
-    mission: "Scale a mentorship program connecting students, alumni, faculty, and industry.",
-    impact: "350% increase in participation · 50+ participants",
-    outcomes: [
-      "Structured program formats with Microsoft Project coordination",
-      "Multi-channel engagement across print, digital, and in-person",
+    impact: "350% growth",
+    telemetry: [
+      { label: "Growth", value: "350", unit: "%" },
+      { label: "Participants", value: "50+" },
+      { label: "Channels", value: "3" },
     ],
+    tags: ["Program design", "MS Project", "Engagement"],
   },
 ] as const;
 
@@ -182,30 +197,36 @@ export const skillGroups = [
     id: "mech",
     title: "Mechanical Engineering",
     skills: ["GD&T", "DFM", "FEA", "Structural Analysis", "Rapid Prototyping", "Testing"],
+    proof: "Truss optimization · load cases",
   },
   {
     id: "cad",
     title: "CAD / CAE",
     skills: ["Siemens NX", "SOLIDWORKS", "Fusion 360", "Geomagic Design X", "3D Scanning"],
+    proof: "GT40 digital twin · LMH redesign",
   },
   {
     id: "embedded",
     title: "Embedded & Controls",
     skills: ["PID", "Embedded C", "UART/SPI", "JTAG", "LiDAR", "Signal Conditioning"],
+    proof: "Autonomous robot car · C2000",
   },
   {
     id: "code",
     title: "Programming",
     skills: ["C/C++", "Python", "MATLAB", "Java", "Git"],
+    proof: "Perception stack · validation scripts",
   },
   {
     id: "product",
     title: "Product & Systems",
     skills: ["Requirements", "Trade Studies", "Verification", "Technical Writing"],
+    proof: "Neutrinos platform analysis",
   },
   {
     id: "tools",
     title: "Tools",
     skills: ["LabVIEW", "Simulink", "Microsoft Project", "JIRA"],
+    proof: "HIL · program coordination",
   },
 ] as const;

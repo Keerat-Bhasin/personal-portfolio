@@ -1,98 +1,88 @@
 "use client";
 
-import { MotionReveal } from "@/components/motion/MotionReveal";
+import { AnnotationList } from "@/components/visual/AnnotationList";
+import { ExhibitFrame } from "@/components/visual/ExhibitFrame";
+import { TelemetryStrip } from "@/components/visual/TelemetryStrip";
+import { Gt40Viewport } from "@/components/visual/exhibits/Gt40Viewport";
 import { research } from "@/lib/content";
 import { useState } from "react";
 
+type Layer = "mesh" | "wireframe" | "compliance";
+type HotspotId = (typeof research.hotspots)[number]["id"];
+
 export function ResearchDashboard() {
-  type HotspotId = (typeof research.hotspots)[number]["id"];
+  const [layer, setLayer] = useState<Layer>("mesh");
   const [activeHotspot, setActiveHotspot] = useState<HotspotId>(research.hotspots[0].id);
   const hotspot = research.hotspots.find((h) => h.id === activeHotspot)!;
 
+  const annotations = research.hotspots.map((h) => ({
+    id: h.id,
+    tag: h.label,
+    note: h.body,
+  }));
+
   return (
-    <div className="relative">
-      {/* One dominant idea: the viewport frame */}
-      <div className="overflow-hidden rounded-[32px] border border-border/40 bg-bg-panel">
-        <div className="relative min-h-[640px]">
-          <div className="absolute inset-0 bg-[radial-gradient(900px_circle_at_30%_15%,rgba(255,184,107,0.07),transparent_55%),radial-gradient(1000px_circle_at_85%_70%,rgba(207,208,204,0.05),transparent_60%)]" />
-          <div className="absolute inset-0 grid-overlay opacity-10" />
+    <div className="space-y-10">
+      <TelemetryStrip items={research.telemetry} />
 
-          <div className="group relative z-10 flex h-full flex-col justify-between p-12 md:p-14">
-            <div className="flex items-center justify-between">
-              <p className="font-mono text-[10px] uppercase tracking-[0.34em] text-text-muted">
-                GT40 · digital twin review
-              </p>
-              <div className="hidden gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:flex">
-                {["Mesh", "Wireframe", "Compliance"].map((layer) => (
-                  <span
-                    key={layer}
-                    className="rounded border border-border/30 bg-bg-base/25 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-text-muted"
-                  >
-                    {layer}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="mx-auto my-14 w-full max-w-5xl">
-              <div className="aspect-[16/7] w-full rounded-3xl border border-border/30 bg-bg-elevated/65 shadow-[0_40px_160px_rgba(0,0,0,0.68)]">
-                <div className="flex h-full items-center justify-center font-mono text-xs text-text-muted">
-                  viewport placeholder · replace with GT40 render / wireframe loop
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-end justify-between gap-8">
-              <p className="font-mono text-[10px] text-text-muted">
-                {research.org} · {research.date} · {research.role}
-              </p>
-              <div className="hidden md:block">
-                <p className="font-mono text-[10px] uppercase tracking-[0.34em] text-text-muted">
-                  Annotation
-                </p>
-                <p className="mt-2 max-w-sm text-sm leading-relaxed text-text-secondary">
-                  {hotspot.body}
-                </p>
-              </div>
-            </div>
-          </div>
+      <ExhibitFrame
+        label="Exhibit B · GT40 digital twin viewport"
+        takeaway={research.takeaway}
+        badge={layer.toUpperCase()}
+      >
+        <div className="absolute inset-0 grid-overlay opacity-[0.07]" />
+        <div className="exhibit-corner exhibit-corner-tl" />
+        <div className="exhibit-corner exhibit-corner-br" />
+        <Gt40Viewport layer={layer} />
+        <div className="absolute right-4 top-4 z-10 flex gap-1.5">
+          {(["mesh", "wireframe", "compliance"] as const).map((l) => (
+            <button
+              key={l}
+              type="button"
+              onClick={() => setLayer(l)}
+              className={`rounded border px-2 py-1 font-mono text-[9px] uppercase tracking-wider transition ${
+                layer === l
+                  ? "border-signal/40 bg-bg-base/60 text-text-primary"
+                  : "border-border/30 bg-bg-base/30 text-text-muted hover:text-text-secondary"
+              }`}
+            >
+              {l}
+            </button>
+          ))}
         </div>
-      </div>
+        <p className="absolute bottom-4 left-4 z-10 max-w-xs font-mono text-[10px] text-text-muted">
+          {hotspot.label}: {hotspot.body}
+        </p>
+      </ExhibitFrame>
 
-      {/* Sparse controls (no heavy chrome) */}
-      <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_360px]">
+      <div className="grid gap-8 lg:grid-cols-[1fr_280px]">
         <div>
-          <h3 className="font-display text-2xl font-semibold text-text-primary md:text-3xl">
+          <h3 className="font-display text-xl font-semibold text-text-primary md:text-2xl">
             {research.title}
           </h3>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-text-secondary md:text-lg">
-            {research.summary}
+          <p className="mt-2 font-mono text-[11px] text-text-muted">
+            {research.org} · {research.date} · {research.role}
           </p>
         </div>
-
-        <div className="space-y-3">
-          <p className="font-mono text-[10px] uppercase tracking-[0.34em] text-text-muted">
-            Hotspots
-          </p>
-          <div className="flex flex-col gap-2">
-            {research.hotspots.map((h) => (
-              <button
-                key={h.id}
-                type="button"
-                onClick={() => setActiveHotspot(h.id)}
-                className={`flex items-center justify-between rounded-lg border px-4 py-3 text-left transition ${
-                  activeHotspot === h.id
-                    ? "border-signal/35 bg-bg-panel/40"
-                    : "border-border/50 hover:border-border/80"
-                }`}
-              >
-                <span className="font-mono text-xs text-text-secondary">{h.label}</span>
-                <span className="font-mono text-[10px] text-text-muted">↗</span>
-              </button>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-2">
+          {research.hotspots.map((h) => (
+            <button
+              key={h.id}
+              type="button"
+              onClick={() => setActiveHotspot(h.id)}
+              className={`rounded border px-3 py-1.5 font-mono text-[10px] transition ${
+                activeHotspot === h.id
+                  ? "border-signal/35 text-text-primary"
+                  : "border-border/40 text-text-muted hover:border-border/70"
+              }`}
+            >
+              {h.label}
+            </button>
+          ))}
         </div>
       </div>
+
+      <AnnotationList items={annotations} columns={2} />
     </div>
   );
 }

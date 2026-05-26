@@ -80,3 +80,34 @@ body {
   height: 1px;
   background: var(--text-muted);
 }
+
+.exhibit-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 70%, rgba(7, 8, 10, 0.35) 100%),
+    radial-gradient(ellipse at 50% 0%, rgba(77, 163, 255, 0.04), transparent 55%);
+}
+
+.exhibit-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(207, 208, 204, 0.2);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.exhibit-corner-tl {
+  top: 12px;
+  left: 12px;
+  border-width: 1px 0 0 1px;
+}
+
+.exhibit-corner-br {
+  bottom: 12px;
+  right: 12px;
+  border-width: 0 1px 1px 0;
+}

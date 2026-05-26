@@ -23,10 +23,10 @@ export default function Home() {
           index="01 — About"
           title={
             <>
-              Systems thinking across{" "}
-              <span className="text-aluminum">hardware, software, and design</span>.
+              Hardware · software · <span className="text-aluminum">validation</span>
             </>
           }
+          takeaway="One integrated system — not isolated disciplines."
         >
           <About />
         </Section>
@@ -36,11 +36,10 @@ export default function Home() {
           index="02 — Research"
           title={
             <>
-              Racing heritage,{" "}
-              <span className="text-aluminum">digitally reconstructed</span>.
+              GT40 <span className="text-aluminum">digital twin</span>
             </>
           }
-          subtitle="A motorsport-meets-CAD-review environment for the GT40 digital twin and FIA LMH redesign."
+          takeaway="Scan → mesh → NX · FIA LMH compliance"
           className="bg-bg-elevated/35"
         >
           <ResearchDashboard />
@@ -51,10 +50,10 @@ export default function Home() {
           index="03 — Projects"
           title={
             <>
-              Engineering showcases, not{" "}
-              <span className="text-aluminum">resume bullets</span>.
+              Engineering <span className="text-aluminum">exhibits</span>
             </>
           }
+          takeaway="Architecture · telemetry · proof metrics"
         >
           <ProjectGrid projects={featuredProjects} />
         </Section>
@@ -64,10 +63,10 @@ export default function Home() {
           index="04 — Experience"
           title={
             <>
-              Mission logs from{" "}
-              <span className="text-aluminum">real work</span>.
+              Impact <span className="text-aluminum">telemetry</span>
             </>
           }
+          takeaway="Metrics first — details on request"
           className="bg-bg-elevated/50"
         >
           <ExperienceList items={experiences} />
@@ -78,10 +77,10 @@ export default function Home() {
           index="05 — Skills"
           title={
             <>
-              Interactive systems{" "}
-              <span className="text-aluminum">map</span>.
+              Subsystem <span className="text-aluminum">graph</span>
             </>
           }
+          takeaway="Skills linked to project proof artifacts"
         >
           <SystemsMap />
         </Section>
@@ -89,7 +88,7 @@ export default function Home() {
         <Section
           id="certifications"
           index="06 — Certifications"
-          title="Process discipline credentials."
+          title="Process credentials"
         >
           <Certifications />
         </Section>
@@ -99,10 +98,10 @@ export default function Home() {
           index="07 — Contact"
           title={
             <>
-              Let&apos;s build something{" "}
-              <span className="text-aluminum">together</span>.
+              <span className="text-aluminum">Connect</span>
             </>
           }
+          takeaway="Fall 2026 · robotics · embedded · product"
         >
           <Contact />
         </Section>
