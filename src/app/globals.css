@@ -1,26 +1,82 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Material palette: graphite + warm neutrals */
+  --bg-base: #07080a;
+  --bg-elevated: #0b0d10;
+  --bg-panel: #101418;
+  --border: #2a3138;
+  --text-primary: #e7e7e3;
+  --text-secondary: #b6b3ad;
+  --text-muted: #7c7a76;
+
+  /* Accents */
+  --accent: #cfd0cc; /* aluminum highlight (default accent) */
+  --signal: #4da3ff; /* rare signal color (interaction only) */
+  --accent-amber: #ffb86b; /* extremely restrained warmth */
+  --aluminum: #cfd0cc;
+
+  /* Lighting */
+  --warm-glow: rgba(255, 184, 107, 0.06);
+  --cool-glow: rgba(77, 163, 255, 0.04);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-base: var(--bg-base);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-panel: var(--bg-panel);
+  --color-border: var(--border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-signal: var(--signal);
+  --color-accent-amber: var(--accent-amber);
+  --color-aluminum: var(--aluminum);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-space), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(1000px circle at 18% 6%, var(--warm-glow), transparent 55%),
+    radial-gradient(1200px circle at 78% 18%, var(--cool-glow), transparent 60%),
+    radial-gradient(900px circle at 50% 120%, rgba(0, 0, 0, 0.55), transparent 55%),
+    var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(207, 208, 204, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(207, 208, 204, 0.025) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+.glass-panel {
+  background: rgba(16, 20, 24, 0.72);
+  border: 1px solid rgba(42, 49, 56, 0.55);
+  backdrop-filter: blur(12px);
+}
+
+.telemetry-tick::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 1px;
+  background: var(--text-muted);
 }
