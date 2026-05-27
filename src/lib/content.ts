@@ -71,11 +71,11 @@ export const aboutTimeline = [
   },
 ] as const;
 
-/** Grouped by domain — not a flattened “stack” row. */
+/** Grouped by domain — not a flattened "stack" row. */
 export const toolDomains = {
-  cad: [“Siemens NX”, “SOLIDWORKS”, “Geomagic Design X”, “Abaqus”],
-  analysis: [“MATLAB”, “FEA”, “LabVIEW”],
-  embedded: [“Embedded C”, “PID control”, “UART/SPI”, “JTAG”],
+  cad: ["Siemens NX", "SOLIDWORKS", "Geomagic Design X", "Abaqus"],
+  analysis: ["MATLAB", "FEA", "LabVIEW"],
+  embedded: ["Embedded C", "PID control", "UART/SPI", "JTAG"],
 } as const;
 
 export const certifications = [
