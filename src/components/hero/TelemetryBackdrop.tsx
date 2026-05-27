@@ -15,7 +15,7 @@ export function TelemetryBackdrop() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let animation = 0;
-    let raf = 0;
+    const raf = 0;
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
