@@ -8,25 +8,23 @@ type Node = {
 
 export function SystemsIntegrationDiagram() {
   const nodes: Node[] = [
-    { x: 120, y: 170, label: "MECH", sub: "CAD · FEA" },
-    { x: 280, y: 100, label: "CTRL", sub: "freq. domain", sub2: "state space" },
-    { x: 440, y: 170, label: "VALID", sub: "bench · scope" },
-    { x: 600, y: 100, label: "BUILD", sub: "prototyping", sub2: "3D printing" },
-    { x: 400, y: 250, label: "DATA", sub: "MATLAB · Python" },
+    { x: 120, y: 160, label: "MECH", sub: "CAD · FEA" },
+    { x: 300, y: 80,  label: "CTRL", sub: "freq. domain", sub2: "state space" },
+    { x: 540, y: 160, label: "BUILD", sub: "prototyping", sub2: "3D printing" },
+    { x: 360, y: 250, label: "DATA", sub: "MATLAB · Python" },
   ];
 
   const edges: [number, number][] = [
     [0, 1],
     [1, 2],
-    [2, 3],
-    [0, 4],
-    [4, 2],
-    [1, 4],
+    [0, 3],
+    [1, 3],
+    [3, 2],
   ];
 
   return (
-    <svg viewBox="0 0 720 320" className="h-full w-full" aria-label="Systems integration diagram">
-      <rect width="720" height="320" fill="transparent" />
+    <svg viewBox="0 0 660 320" className="h-full w-full" aria-label="Systems integration diagram">
+      <rect width="660" height="320" fill="transparent" />
       {edges.map(([a, b], i) => (
         <line
           key={i}

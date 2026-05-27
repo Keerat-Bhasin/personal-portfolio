@@ -89,7 +89,7 @@ export default function Home() {
           id="certifications"
           index="06 — Certifications"
           title="Process credentials"
-          takeaway="Six Sigma and Lean Green Belt — uncommon for an undergrad, earned through formal coursework and applied project work"
+          takeaway="Professionally certified in Six Sigma and Lean methodologies — structured frameworks for process improvement, statistical analysis, and waste reduction"
         >
           <Certifications />
         </Section>

@@ -6,7 +6,8 @@ import Link from "next/link";
 const contactTelemetry = [
   { label: "Availability", value: "Fall 2026" },
   { label: "Interests", value: "Mechanical design · controls · mechatronics · robotics" },
-  { label: "Location", value: "Remote OK" },
+  { label: "Location", value: "Champaign, IL" },
+  { label: "Open to", value: "Relocation · remote" },
 ] as const;
 
 export function Certifications() {
