@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const contactTelemetry = [
   { label: "Availability", value: "Fall 2026" },
-  { label: "Focus", value: "Robotics" },
+  { label: "Interest", value: "Embedded robotics" },
   { label: "Location", value: "Remote OK" },
 ] as const;
 

@@ -48,7 +48,7 @@ export function Hero() {
               href="#projects"
               className="rounded-lg bg-aluminum px-5 py-3 text-sm font-medium text-bg-base transition hover:bg-aluminum/90"
             >
-              Explore Work
+              View projects
             </Link>
             <Link
               href="/resume.pdf"

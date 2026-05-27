@@ -1,10 +1,10 @@
 export function SystemsIntegrationDiagram() {
   const nodes = [
     { x: 120, y: 170, label: "MECH", sub: "CAD · FEA" },
-    { x: 280, y: 100, label: "EMBED", sub: "PID · C2000" },
-    { x: 440, y: 170, label: "VALIDATE", sub: "HIL · TEST" },
-    { x: 600, y: 100, label: "SHIP", sub: "FIELD" },
-    { x: 400, y: 250, label: "DATA", sub: "TELEMETRY" },
+    { x: 280, y: 100, label: "CONTROL", sub: "PID · C" },
+    { x: 440, y: 170, label: "VALIDATE", sub: "bench · scope" },
+    { x: 600, y: 100, label: "BUILD", sub: "prototype" },
+    { x: 400, y: 250, label: "DATA", sub: "MATLAB · scope" },
   ];
 
   const edges: [number, number][] = [

@@ -26,7 +26,7 @@ export default function Home() {
               Hardware · software · <span className="text-aluminum">validation</span>
             </>
           }
-          takeaway="One integrated system — not isolated disciplines."
+          takeaway="Design, firmware, and verification on one system boundary."
         >
           <About />
         </Section>
@@ -39,7 +39,7 @@ export default function Home() {
               GT40 <span className="text-aluminum">digital twin</span>
             </>
           }
-          takeaway="Scan → mesh → NX · FIA LMH compliance"
+          takeaway="Point cloud to watertight mesh to regulation-constrained NX exterior"
           className="bg-bg-elevated/35 py-28 md:py-40"
         >
           <ResearchDashboard />
@@ -53,7 +53,7 @@ export default function Home() {
               Engineering <span className="text-aluminum">exhibits</span>
             </>
           }
-          takeaway="Architecture · telemetry · proof metrics"
+          takeaway="System diagrams, measured results, and test evidence"
         >
           <ProjectGrid projects={featuredProjects} />
         </Section>
@@ -63,10 +63,10 @@ export default function Home() {
           index="04 — Experience"
           title={
             <>
-              Impact <span className="text-aluminum">telemetry</span>
+              Roles & <span className="text-aluminum">outcomes</span>
             </>
           }
-          takeaway="Metrics first — details on request"
+          takeaway="Verifiable program results — scope available on request"
           className="bg-bg-elevated/50"
         >
           <ExperienceList items={experiences} />
@@ -80,7 +80,7 @@ export default function Home() {
               Subsystem <span className="text-aluminum">graph</span>
             </>
           }
-          takeaway="Skills linked to project proof artifacts"
+          takeaway="Each capability tied to a built artifact or test record"
         >
           <SystemsMap />
         </Section>
@@ -101,7 +101,7 @@ export default function Home() {
               <span className="text-aluminum">Connect</span>
             </>
           }
-          takeaway="Fall 2026 · robotics · embedded · product"
+          takeaway="Fall 2026 internships · embedded robotics · mechanical systems"
         >
           <Contact />
         </Section>

@@ -10,23 +10,23 @@ type View = "platform" | "pipeline" | "hardware";
 const views: { id: View; label: string; src: string; alt: string; fit: "cover" | "contain" }[] = [
   {
     id: "platform",
-    label: "Platform",
+    label: "Assembly",
     src: robotImages.platform,
-    alt: "Autonomous robot car platform",
+    alt: "Autonomous robot car — assembled hardware platform",
     fit: "cover",
   },
   {
     id: "pipeline",
-    label: "Pipeline",
+    label: "Data flow",
     src: robotImages.pipeline,
-    alt: "Autonomous car data flow and pipeline architecture diagram",
+    alt: "Sense-plan-act data flow from sensors through planning to motor control",
     fit: "contain",
   },
   {
     id: "hardware",
-    label: "Hardware",
+    label: "Wiring",
     src: robotImages.hardware,
-    alt: "Autonomous car hardware connections diagram",
+    alt: "MCU, sensor, and actuator wiring — UART and SPI connections",
     fit: "contain",
   },
 ];

@@ -8,7 +8,7 @@ import {
   aboutAnnotations,
   aboutTakeaway,
   aboutTimeline,
-  toolStack,
+  toolDomains,
 } from "@/lib/content";
 
 export function About() {
@@ -18,7 +18,7 @@ export function About() {
         <ExhibitFrame
           label="Exhibit A · Systems integration"
           takeaway={aboutTakeaway}
-          badge="LIVE DIAGRAM"
+          badge="SYSTEM MAP"
         >
           <div className="exhibit-corner exhibit-corner-tl" />
           <div className="exhibit-corner exhibit-corner-br" />
@@ -54,9 +54,20 @@ export function About() {
               </li>
             ))}
           </ol>
-          <p className="font-mono text-[10px] leading-relaxed text-text-muted">
-            {toolStack.join(" · ")}
-          </p>
+          <div className="space-y-2 font-mono text-[10px] leading-relaxed text-text-muted">
+            <p>
+              <span className="text-text-secondary">CAD:</span>{" "}
+              {toolDomains.cad.join(" · ")}
+            </p>
+            <p>
+              <span className="text-text-secondary">Analysis:</span>{" "}
+              {toolDomains.analysis.join(" · ")}
+            </p>
+            <p>
+              <span className="text-text-secondary">Embedded:</span>{" "}
+              {toolDomains.embedded.join(" · ")}
+            </p>
+          </div>
         </div>
       </MotionReveal>
     </div>

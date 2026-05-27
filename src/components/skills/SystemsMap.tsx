@@ -43,7 +43,7 @@ export function SystemsMap() {
         </ExhibitFrame>
         <div className="mt-6">
           <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-signal">
-            Proof artifact
+            Linked artifact
           </p>
           <p className="mt-2 font-mono text-[11px] text-text-muted">{group.proof}</p>
           <p className="mt-4 font-mono text-[11px] leading-relaxed text-text-secondary">

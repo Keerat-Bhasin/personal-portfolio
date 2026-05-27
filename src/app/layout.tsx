@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Keerat Singh Bhasin — Systems Engineer",
   description:
-    "Systems Engineering & Design @ UIUC. Robotics, embedded controls, CAD/CAE, and product development.",
+    "Systems Engineering & Design @ UIUC. Mechanical design, embedded control, CAD/CAE, and bench validation.",
 };
 
 export default function RootLayout({
