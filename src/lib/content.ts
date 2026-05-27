@@ -228,7 +228,7 @@ export const experiences = [
     impact: "5-platform competitive analysis",
     telemetry: [
       { label: "Platforms", value: "5" },
-      { label: "Scope", value: "Competitive" },
+      { label: "Type", value: "Market analysis" },
       { label: "Deliverable", value: "Strategy deck" },
     ],
     tags: ["Competitive benchmarking", "Certification architecture", "Leadership review"],
