@@ -31,6 +31,9 @@ export function About() {
 
       <MotionReveal delay={0.1}>
         <div className="space-y-8">
+          <p className="font-mono text-[13px] leading-relaxed text-text-secondary">
+            Third-year mechanical engineering student at UIUC with hands-on experience across mechanical design, FEA, embedded firmware, and bench validation. My projects span writing control loops in C to structural analysis in Abaqus to reverse-engineering a 1:18 scale car into a regulation-compliant CAD model in NX. I'm drawn to work at the hardware-software boundary — designing components, writing the firmware to run on them, and validating the full system rather than handing off at each interface.
+          </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.34em] text-text-muted">
             Trajectory
           </p>

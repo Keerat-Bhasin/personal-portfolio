@@ -66,7 +66,7 @@ export default function Home() {
               Roles & <span className="text-aluminum">outcomes</span>
             </>
           }
-          takeaway="Verifiable program results — scope available on request"
+          takeaway="Verifiable program results"
           className="bg-bg-elevated/50"
         >
           <ExperienceList items={experiences} />
@@ -89,6 +89,7 @@ export default function Home() {
           id="certifications"
           index="06 — Certifications"
           title="Process credentials"
+          takeaway="Six Sigma and Lean Green Belt — uncommon for an undergrad, earned through formal coursework and applied project work"
         >
           <Certifications />
         </Section>
@@ -101,7 +102,7 @@ export default function Home() {
               <span className="text-aluminum">Connect</span>
             </>
           }
-          takeaway="Fall 2026 internships · embedded robotics · mechanical systems"
+          takeaway="Fall 2026 internships & co-ops · mechanical design · controls · mechatronics · robotics"
         >
           <Contact />
         </Section>

@@ -4,6 +4,15 @@ import type { skillGroups } from "@/lib/content";
 
 type GroupId = (typeof skillGroups)[number]["id"];
 
+const nodeLabels: Record<GroupId, string> = {
+  mech: "MECH",
+  cad: "CAD",
+  embedded: "EMBED",
+  code: "CODE",
+  product: "PRODUCT",
+  tools: "TOOLS",
+};
+
 const positions: Record<GroupId, { x: number; y: number }> = {
   mech: { x: 120, y: 140 },
   cad: { x: 280, y: 70 },
@@ -69,7 +78,7 @@ export function SkillsGraph({
               fontSize="9"
               fontFamily="monospace"
             >
-              {g.title.split(" ")[0].slice(0, 8).toUpperCase()}
+              {nodeLabels[g.id]}
             </text>
           </g>
         );

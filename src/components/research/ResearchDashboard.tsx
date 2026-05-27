@@ -7,11 +7,18 @@ import { Gt40Viewport } from "@/components/visual/exhibits/Gt40Viewport";
 import { research } from "@/lib/content";
 import { useState } from "react";
 
-type Layer = "mesh" | "wireframe" | "compliance";
+type Layer = "render" | "scan" | "solid";
+
+const layerLabel: Record<Layer, string> = {
+  render: "render",
+  scan: "point cloud",
+  solid: "reference solid",
+};
+
 type HotspotId = (typeof research.hotspots)[number]["id"];
 
 export function ResearchDashboard() {
-  const [layer, setLayer] = useState<Layer>("mesh");
+  const [layer, setLayer] = useState<Layer>("render");
   const [activeHotspot, setActiveHotspot] = useState<HotspotId>(research.hotspots[0].id);
   const hotspot = research.hotspots.find((h) => h.id === activeHotspot)!;
 
@@ -26,7 +33,7 @@ export function ResearchDashboard() {
       <TelemetryStrip items={research.telemetry} />
 
       <ExhibitFrame
-        label="Exhibit B · GT40 digital twin viewport"
+        label="Exhibit B · GT40 scan pipeline"
         takeaway={research.takeaway}
         badge={layer.toUpperCase()}
         immersive
@@ -36,7 +43,7 @@ export function ResearchDashboard() {
         <div className="exhibit-corner exhibit-corner-br" />
         <Gt40Viewport layer={layer} />
         <div className="absolute right-4 top-4 z-10 flex gap-1.5">
-          {(["mesh", "wireframe", "compliance"] as const).map((l) => (
+          {(["render", "scan", "solid"] as const).map((l) => (
             <button
               key={l}
               type="button"
@@ -47,7 +54,7 @@ export function ResearchDashboard() {
                   : "border-border/30 bg-bg-base/30 text-text-muted hover:text-text-secondary"
               }`}
             >
-              {l}
+              {layerLabel[l]}
             </button>
           ))}
         </div>

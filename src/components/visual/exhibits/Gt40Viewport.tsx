@@ -4,18 +4,18 @@ import { gt40Images } from "@/lib/assets";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
-type Layer = "mesh" | "wireframe" | "compliance";
+type Layer = "render" | "scan" | "solid";
 
 const layerSrc: Record<Layer, string> = {
-  mesh: gt40Images.mesh,
-  wireframe: gt40Images.wireframe,
-  compliance: gt40Images.compliance,
+  render: gt40Images.mesh,
+  scan: gt40Images.wireframe,
+  solid: gt40Images.compliance,
 };
 
 const layerAlt: Record<Layer, string> = {
-  mesh: "1966 Ford GT40 Mk II digital twin hero render",
-  wireframe: "GT40 scanned mesh from 3D scanning pipeline",
-  compliance: "GT40 exterior solid model for FIA LMH compliance redesign",
+  render: "1966 Ford GT40 Mk II digital twin hero render",
+  scan: "GT40 point cloud scan captured from 1:18 scale model",
+  solid: "GT40 reference solid reconstructed from scan data in Geomagic Design X",
 };
 
 export function Gt40Viewport({ layer }: { layer: Layer }) {
@@ -36,10 +36,10 @@ export function Gt40Viewport({ layer }: { layer: Layer }) {
             src={src}
             alt={layerAlt[layer]}
             fill
-            priority={layer === "mesh"}
+            priority={layer === "render"}
             sizes="(max-width: 1200px) 100vw, 1152px"
             className={`object-cover object-center ${
-              layer === "wireframe" ? "brightness-[0.92] contrast-[1.05]" : ""
+              layer === "scan" ? "brightness-[0.92] contrast-[1.05]" : ""
             }`}
           />
         </motion.div>

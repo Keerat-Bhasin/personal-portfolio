@@ -13,3 +13,5 @@ export const robotImages = {
 } as const;
 
 export const trussImage = "/truss_working_schematic.png";
+
+export const feaImage = "/fea_model.png";

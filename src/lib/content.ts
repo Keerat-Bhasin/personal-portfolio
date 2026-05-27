@@ -1,7 +1,7 @@
 export const site = {
   name: "Keerat Singh Bhasin",
   title: "Systems Engineering & Design @ UIUC",
-  positioning: "Mechanical design · embedded firmware · bench validation",
+  positioning: "Mechanical design · controls · mechatronics",
   availability: "Available for Fall 2026 Internships & Co-ops",
   gpa: "3.7",
   school: "UIUC",
@@ -85,7 +85,7 @@ export const certifications = [
 
 export const research = {
   org: "Product Design Lab · UIUC",
-  role: "URA",
+  role: "REU",
   date: "Sep – Dec 2024",
   title: "GT40 Mk II Digital Twin → FIA LMH Redesign",
   takeaway: "3D scan → watertight mesh → NX exterior per FIA LMH rules.",
@@ -93,7 +93,7 @@ export const research = {
     { label: "Pipeline", value: "Scan → mesh → NX" },
     { label: "Regulation", value: "FIA LMH" },
     { label: "CAD", value: "NX · Geomagic" },
-    { label: "Delivered", value: "Symposium" },
+    { label: "Delivered", value: "URS · ISE Conf." },
   ],
   hotspots: [
     {
@@ -159,8 +159,8 @@ export const featuredProjects = [
       },
       {
         id: "r2",
-        tag: "Timing",
-        note: "Latency budget from perception sample to motor command.",
+        tag: "Architecture",
+        note: "Multiple control loops managing speed control, computer vision, path planning, and state machine transitions.",
       },
       {
         id: "r3",
@@ -225,10 +225,10 @@ export const experiences = [
     role: "AI Platform Enablement Intern",
     org: "Neutrinos",
     date: "Mar 2026 – May 2026",
-    impact: "8-dimension platform evaluation",
+    impact: "5-platform competitive analysis",
     telemetry: [
       { label: "Platforms", value: "5" },
-      { label: "Framework", value: "8 dims" },
+      { label: "Scope", value: "Competitive" },
       { label: "Deliverable", value: "Strategy deck" },
     ],
     tags: ["Competitive benchmarking", "Certification architecture", "Leadership review"],
