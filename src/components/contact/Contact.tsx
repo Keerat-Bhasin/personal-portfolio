@@ -29,7 +29,7 @@ export function Contact() {
   return (
     <MotionReveal>
       <TelemetryStrip items={contactTelemetry} className="mb-10" />
-      <div className="flex flex-wrap gap-6">
+      <div className="flex flex-wrap justify-center gap-6">
         <Link
           href={`mailto:${site.email}`}
           className="font-mono text-sm text-text-primary underline decoration-border/50 underline-offset-8 transition hover:decoration-signal/40"
