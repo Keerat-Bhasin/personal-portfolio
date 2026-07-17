@@ -2,7 +2,6 @@ export const site = {
   name: "Keerat Singh Bhasin",
   title: "Systems Engineering & Design @ UIUC",
   positioning: "Mechanical design · controls · mechatronics",
-  availability: "Available for Fall 2026 Internships & Co-ops",
   gpa: "3.7",
   school: "UIUC",
   grad: "May 2027",

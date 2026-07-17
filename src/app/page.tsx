@@ -102,7 +102,7 @@ export default function Home() {
               <span className="text-aluminum">Connect</span>
             </>
           }
-          takeaway="Fall 2026 internships & co-ops · mechanical design · controls · mechatronics · robotics"
+          takeaway="Mechanical design · controls · mechatronics · robotics"
         >
           <Contact />
         </Section>

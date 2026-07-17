@@ -4,7 +4,6 @@ import { certifications, site } from "@/lib/content";
 import Link from "next/link";
 
 const contactTelemetry = [
-  { label: "Availability", value: "Fall 2026" },
   { label: "Interests", value: "Mechanical design · controls · mechatronics · robotics" },
   { label: "Location", value: "Champaign, IL" },
   { label: "Open to", value: "Relocation · remote" },

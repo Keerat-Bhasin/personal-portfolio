@@ -16,13 +16,6 @@ export function Hero() {
       <TelemetryBackdrop />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20">
-        <MotionReveal>
-          <p className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-bg-panel/50 px-3 py-1 font-mono text-xs text-text-secondary">
-            <span className="h-1.5 w-1.5 rounded-full bg-signal" />
-            {site.availability}
-          </p>
-        </MotionReveal>
-
         <MotionReveal delay={0.05}>
           <h1 className="mt-8 font-display text-6xl font-semibold leading-[0.98] tracking-tight text-text-primary md:text-7xl lg:text-8xl">
             {site.name.split(" ").slice(0, 2).join(" ")}
